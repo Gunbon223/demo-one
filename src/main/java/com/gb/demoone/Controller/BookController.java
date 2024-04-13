@@ -29,7 +29,30 @@ public class BookController {
     public Book getBook(@PathVariable String id) {
         return bookService.getBookByID(id);
     }
-    HttpStatus status = HttpStatus.CREATED;
+    //sap xep sach theo nam
+    @GetMapping("/sortByYear")
+    @ResponseBody
+    public List<Book> sortBooksByYear() {
+        return bookService.sortBooksByYear();
+    }
+
+    //tim sach theo ten
+    @GetMapping("/search/{name}")
+    @ResponseBody
+    public Book findBookByName(@PathVariable String name) {
+        return bookService.findBookByName(name);
+    }
+
+    //3. Tìm kiếm book có year nằm trong khoảng thời gian chỉ định (startYear, endYear)
+    @GetMapping("/searchByYear/startyear/{startYear}/endyear/{endYear}")
+    @ResponseBody
+    public List<Book> findBookByYear(@PathVariable int startYear, @PathVariable int endYear) {
+        return bookService.findBookByYear(startYear, endYear);
+    }
+
+
+
+
 //    //them sach
 //    @PostMapping
 //    public void addBook(@RequestBody Book book) {

@@ -22,4 +22,21 @@ public class BookServiceImplement implements BookService {
     public Book getBookByID(String id) {
         return bookDAO.findById(id);
     }
+
+    @Override
+    public List<Book> sortBooksByYear() {
+        return bookDAO.sortBooksByYear();
+    }
+
+    @Override
+    public Book findBookByName(String name) {
+        return bookDAO.findBookByName(name);
+    }
+
+    @Override
+    public List<Book> findBookByYear(int yearStart, int yearEnd) {
+        return bookDAO.findBookByYear(yearStart, yearEnd);
+    }
+
+
 }
