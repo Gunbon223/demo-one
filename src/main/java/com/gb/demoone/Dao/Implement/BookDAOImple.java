@@ -26,7 +26,7 @@ public class BookDAOImple implements BookDAO {
     @Override
     public List<Book> sortBooksByYear() {
         if (!BookDB.books.isEmpty()) {
-            BookDB.books.sort((book1, book2) -> book1.getYear() - book2.getYear());
+            BookDB.books.sort((book1, book2) -> book2.getYear() - book1.getYear());
         }
         return BookDB.books;
     }
